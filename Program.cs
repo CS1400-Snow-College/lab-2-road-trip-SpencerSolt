@@ -45,23 +45,23 @@ Console.WriteLine($"{"Currency:", -50} {currency}");
 
 Console.WriteLine(); //Space
 
-Console.WriteLine($"{"Distance (miles):", -50} {distanceText:#.##}");
-Console.WriteLine($"{"Average Speed (mph):", -50} {averageSpeedText:#.##}");
+Console.WriteLine($"{"Distance (miles):", -50} {distanceText:0.##}");
+Console.WriteLine($"{"Average Speed (mph):", -50} {averageSpeedText:0.##}");
 bool distanceBool = float.TryParse(distanceText, out distanceNumber); //converting string to float
 bool averageSpeedBool = float.TryParse(averageSpeedText, out averageSpeedNumber); //converting string to float
 float drivingTimeHour = Convert.ToByte((distanceNumber -(distanceNumber % averageSpeedNumber))/averageSpeedNumber); //hours spent driving
 float drivingTimeMinute = Convert.ToByte((distanceNumber/averageSpeedNumber - drivingTimeHour)*60); //minutes spent driving
-Console.WriteLine($"{"Time Driving:", -50} {drivingTimeHour:#}H {drivingTimeMinute:#}M");
+Console.WriteLine($"{"Time Driving:", -50} {drivingTimeHour:0}H {drivingTimeMinute:0}M");
 
 Console.WriteLine(); //Space
 
 Console.WriteLine($"{"Vehicle Miles per Gallon:", -50} {milesPerGallonText}");
 bool milesPerGallonBool = float.TryParse(milesPerGallonText, out milesPerGallonNumber); //converting string to float
 float fuelNeeded = (distanceNumber / milesPerGallonNumber * 2); //calculates gas needed for a round trip
-Console.WriteLine($"{"Fuel Needed (round trip):", -50} {fuelNeeded:#.00} gallons");
+Console.WriteLine($"{"Fuel Needed (round trip):", -50} {fuelNeeded:0.00} gallons");
 bool gasCapacityBool = float.TryParse(gasCapacityText, out gasCapacityNumber); //converting string to float
 float rangePerTank = (milesPerGallonNumber*gasCapacityNumber); //calculates the amount of miles per tank
-Console.WriteLine($"{"Range per Tank:", -50} {rangePerTank:#.00}");
+Console.WriteLine($"{"Range per Tank:", -50} {rangePerTank:0.00}");
 byte fuelStops = Convert.ToByte(fuelNeeded/milesPerGallonNumber); //calculates the amount of stops needed to refill gas
 Console.WriteLine($"{"Estimated Fuel Stops:", -50} {fuelStops}");
 
@@ -85,6 +85,8 @@ Console.WriteLine(); //Space
 
 Console.WriteLine($"{"Average song length (min):", -50} {songLengthText}");
 bool songLengthBool = float.TryParse(songLengthText, out songLengthNumber); //converting string to float
-short totalTimeDriving = (short)((drivingTimeHour * 60) + drivingTimeMinute);
-float songsNeeded = (((totalTimeDriving - (totalTimeDriving % songLengthNumber)) / songLengthNumber) + (totalTimeDriving % songLengthNumber)); //calculates the amount of songs needed for the amount of time driving
+float totalTimeDriving = (drivingTimeHour * 60 + drivingTimeMinute);
+Console.WriteLine(totalTimeDriving);
+double songsNeeded = 0.44444444+ totalTimeDriving/songLengthNumber; //calculates the amount of songs needed for the amount of time driving
+Console.WriteLine(songsNeeded);
 Console.WriteLine($"{"Number of songs needed:", -50} {songsNeeded:#}");
