@@ -22,7 +22,7 @@ string distanceText = Console.ReadLine();
 Console.Write($"What average speed (MPH) will {driver} be travelling? ");
 string averageSpeedText = Console.ReadLine();
 //Miles per gallon (MPG)
-Console.Write("How many MPG does your car get?" );
+Console.Write("How many MPG does your car get? ");
 string milesPerGallonText = Console.ReadLine();
 //Gas capacity
 Console.Write("How many gallons of gas does your car hold? ");
